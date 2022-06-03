@@ -1,12 +1,12 @@
 <header class="header">
   <a mat-button class="mat-button" [matMenuTriggerFor]="aboveMenu">Above</a>
-  <mat-menu #aboveMenu="matMenu" yPosition="above">
+  <mat-menu #aboveMenu="matMenu" class="mat-menu" yPosition="above">
     <button mat-menu-item>Item 1</button>
     <button mat-menu-item>Item 2</button>
   </mat-menu>
 
   <a mat-button class="mat-button" [matMenuTriggerFor]="belowMenu">Below</a>
-  <mat-menu #belowMenu="matMenu" yPosition="below">
+  <mat-menu #belowMenu="matMenu" class="mat-menu" yPosition="below">
     <button mat-menu-item>Item 1</button>
     <button mat-menu-item>Item 2</button>
   </mat-menu>

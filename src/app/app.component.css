@@ -8,3 +8,6 @@
 .mat-button{
   color: white;
 }
+.cdk-focused{
+  background: rgba(0,0,0,.2);
+}
