@@ -14,6 +14,20 @@
   <button mat-button>Before</button>
 
   <button mat-button>After</button>
-
 </header>
+<section class="datePicker">
+  <form >
+    <mat-form-field appearance="fill" class="date-form" FormControlName="date">
+      <mat-label class="date-label">Choose a date</mat-label>
+      <input matInput [min]="minDate" [matDatepicker]="picker">
+      <mat-hint class="datePicker-hint">MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker" class="datePicker-toggle"></mat-datepicker-toggle>
+      <mat-datepicker #picker ></mat-datepicker>
+<!--      <mat-error *ngIf="">-->
+<!--        is not a valid date!-->
+<!--      </mat-error>-->
+    </mat-form-field>
+  </form>
+</section>
+
 

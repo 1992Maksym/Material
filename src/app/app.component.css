@@ -11,3 +11,13 @@
 .cdk-focused{
   background: rgba(0,0,0,.2);
 }
+.date-label{
+  color: grey;
+}
+.date-form{
+  background-color: #0000000a;
+}
+.datePicker-hint,
+.datePicker-toggle{
+  color: grey;
+}
