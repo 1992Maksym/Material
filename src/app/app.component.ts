@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewChild,} from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, Validators} from '@angular/forms';
+import {AbstractControl, UntypedFormBuilder, UntypedFormControl, Validators} from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from "./dialog/dialog.component";
 import { DialogListComponent } from "./dialog-list/dialog-list.component";
@@ -38,9 +38,9 @@ export class AppComponent implements OnInit{
   //   return this.form.controls;
   // }
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog,
+  constructor(private fb: UntypedFormBuilder, public dialog: MatDialog,
               private http: HttpClient, private scroll: ScrollDispatcher,
-              private _formBuilder: FormBuilder){
+              private _formBuilder: UntypedFormBuilder){
     // this.form = this.fb.group({
     //   date: ['date',, Validators.required]
     // })
@@ -151,7 +151,7 @@ export class AppComponent implements OnInit{
   }
 
 
-  ValidateAge(control: FormControl){
+  ValidateAge(control: UntypedFormControl){
     // const controlDate = new Date(control)
     if(control.value){
       console.log(control.value)
