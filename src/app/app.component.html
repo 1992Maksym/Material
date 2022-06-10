@@ -1,84 +1,84 @@
-<header class="header">
-  <a mat-button class="mat-button" [matMenuTriggerFor]="aboveMenu">Above</a>
-  <mat-menu #aboveMenu="matMenu" class="mat-menu" yPosition="above">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
-  </mat-menu>
+<!--<header class="header">-->
+<!--  <a mat-button class="mat-button" [matMenuTriggerFor]="aboveMenu">Above</a>-->
+<!--  <mat-menu #aboveMenu="matMenu" class="mat-menu" yPosition="above">-->
+<!--    <button mat-menu-item>Item 1</button>-->
+<!--    <button mat-menu-item>Item 2</button>-->
+<!--  </mat-menu>-->
 
-  <a mat-button class="mat-button" [matMenuTriggerFor]="belowMenu">Below</a>
-  <mat-menu #belowMenu="matMenu" class="mat-menu" yPosition="below">
-    <button mat-menu-item>Item 1</button>
-    <button mat-menu-item>Item 2</button>
-  </mat-menu>
+<!--  <a mat-button class="mat-button" [matMenuTriggerFor]="belowMenu">Below</a>-->
+<!--  <mat-menu #belowMenu="matMenu" class="mat-menu" yPosition="below">-->
+<!--    <button mat-menu-item>Item 1</button>-->
+<!--    <button mat-menu-item>Item 2</button>-->
+<!--  </mat-menu>-->
 
-  <button mat-button>Before</button>
+<!--  <button mat-button>Before</button>-->
 
-  <button mat-button>After</button>
-</header>
-<!--<section class="datePicker">-->
-<!--  <form [formGroup] = "form">-->
-<!--    <mat-form-field appearance="fill" class="date-form" >-->
-<!--      <mat-label class="date-label">Choose a date</mat-label>-->
-<!--      <label>-->
-<!--        <input matInput-->
-<!--               [matDatepicker]="picker" formControlName="date"-->
-<!--               (dateInput)="OnDateChange($event.value)"    />-->
-<!--      </label>-->
-<!--      <mat-hint class="datePicker-hint">MM/DD/YYYY</mat-hint>-->
-<!--      <mat-datepicker-toggle matSuffix [for]="picker" class="datePicker-toggle" ></mat-datepicker-toggle>-->
-<!--      <mat-datepicker #picker ></mat-datepicker>-->
-<!--&lt;!&ndash;      <mat-error *ngIf="formControls.form.errors" class="error">&ndash;&gt;-->
-<!--&lt;!&ndash;        Maximum a should be&ndash;&gt;-->
-<!--&lt;!&ndash;      </mat-error>&ndash;&gt;-->
-<!--    </mat-form-field>-->
-<!--  </form>-->
-<!--  <div *ngIf="!ageControl" class="error">-->
-<!--    You dont have 18 years old!-->
-<!--  </div>-->
+<!--  <button mat-button>After</button>-->
+<!--</header>-->
+<!--&lt;!&ndash;<section class="datePicker">&ndash;&gt;-->
+<!--&lt;!&ndash;  <form [formGroup] = "form">&ndash;&gt;-->
+<!--&lt;!&ndash;    <mat-form-field appearance="fill" class="date-form" >&ndash;&gt;-->
+<!--&lt;!&ndash;      <mat-label class="date-label">Choose a date</mat-label>&ndash;&gt;-->
+<!--&lt;!&ndash;      <label>&ndash;&gt;-->
+<!--&lt;!&ndash;        <input matInput&ndash;&gt;-->
+<!--&lt;!&ndash;               [matDatepicker]="picker" formControlName="date"&ndash;&gt;-->
+<!--&lt;!&ndash;               (dateInput)="OnDateChange($event.value)"    />&ndash;&gt;-->
+<!--&lt;!&ndash;      </label>&ndash;&gt;-->
+<!--&lt;!&ndash;      <mat-hint class="datePicker-hint">MM/DD/YYYY</mat-hint>&ndash;&gt;-->
+<!--&lt;!&ndash;      <mat-datepicker-toggle matSuffix [for]="picker" class="datePicker-toggle" ></mat-datepicker-toggle>&ndash;&gt;-->
+<!--&lt;!&ndash;      <mat-datepicker #picker ></mat-datepicker>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;      <mat-error *ngIf="formControls.form.errors" class="error">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        Maximum a should be&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;      </mat-error>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;    </mat-form-field>&ndash;&gt;-->
+<!--&lt;!&ndash;  </form>&ndash;&gt;-->
+<!--&lt;!&ndash;  <div *ngIf="!ageControl" class="error">&ndash;&gt;-->
+<!--&lt;!&ndash;    You dont have 18 years old!&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</section>&ndash;&gt;-->
+
+<!--<section>-->
+<!--  <ol>-->
+<!--    <li>-->
+<!--      <mat-form-field appearance="fill">-->
+<!--        <mat-label>What's your name?</mat-label>-->
+<!--        <input matInput [(ngModel)]="name">-->
+<!--      </mat-form-field>-->
+<!--    </li>-->
+<!--    <li>-->
+<!--      <button mat-raised-button (click)="openDialog()">Pick one</button>-->
+<!--    </li>-->
+<!--    <li *ngIf="animal">-->
+<!--      You chose: <i>{{animal}}</i>-->
+<!--    </li>-->
+<!--  </ol>-->
 <!--</section>-->
 
-<section>
-  <ol>
-    <li>
-      <mat-form-field appearance="fill">
-        <mat-label>What's your name?</mat-label>
-        <input matInput [(ngModel)]="name">
-      </mat-form-field>
-    </li>
-    <li>
-      <button mat-raised-button (click)="openDialog()">Pick one</button>
-    </li>
-    <li *ngIf="animal">
-      You chose: <i>{{animal}}</i>
-    </li>
-  </ol>
-</section>
+<!--<section>-->
+<!--  <button mat-button (click)="openDialogList()">Open dialog</button>-->
+<!--</section>-->
 
-<section>
-  <button mat-button (click)="openDialogList()">Open dialog</button>
-</section>
+<!--<section>-->
+<!--  <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">-->
+<!--    <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>-->
+<!--  </cdk-virtual-scroll-viewport>-->
+<!--</section>-->
 
-<section>
-  <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
-    <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
-  </cdk-virtual-scroll-viewport>
-</section>
+<!--<section>-->
+<!--  <cdk-virtual-scroll-viewport itemSize="30" class="example-viewport" >-->
+<!--    <div *cdkVirtualFor="let item of items; let odd = odd;" [class.example-alternate]="odd">-->
+<!--      <div class="example-item-detail">Item: {{item}}</div>-->
+<!--    </div>-->
+<!--  </cdk-virtual-scroll-viewport>-->
+<!--</section>-->
 
-<section>
-  <cdk-virtual-scroll-viewport itemSize="30" class="example-viewport" >
-    <div *cdkVirtualFor="let item of items; let odd = odd;" [class.example-alternate]="odd">
-      <div class="example-item-detail">Item: {{item}}</div>
-    </div>
-  </cdk-virtual-scroll-viewport>
-</section>
-
-<cdk-virtual-scroll-viewport class="example-viewport" itemSize="50" #scroller cdkScrollable>
-  <dl class="example-dl">
-    <ng-container *cdkVirtualFor="let item of array">
-      {{item}}
-    </ng-container>
-  </dl>
-</cdk-virtual-scroll-viewport>
+<!--<cdk-virtual-scroll-viewport class="example-viewport" itemSize="50" #scroller cdkScrollable>-->
+<!--  <dl class="example-dl">-->
+<!--    <ng-container *cdkVirtualFor="let item of array">-->
+<!--      {{item}}-->
+<!--    </ng-container>-->
+<!--  </dl>-->
+<!--</cdk-virtual-scroll-viewport>-->
 
 <section class="stepper-block">
   <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
@@ -102,9 +102,8 @@
         <mat-form-field appearance="fill" class="date-form" >
           <mat-label class="date-label">Choose a date</mat-label>
           <label>
-            <input matInput
-                   [matDatepicker]="picker" formControlName="date"
-                   (dateInput)="OnDateChange($event.value)"    />
+            <input matInput  [matDatepicker]="picker" formControlName="date"
+                               (dateInput)="OnDateChange($event.value)"    />
           </label>
           <mat-hint class="datePicker-hint">MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matSuffix [for]="picker" class="datePicker-toggle" ></mat-datepicker-toggle>
