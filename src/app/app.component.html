@@ -16,18 +16,67 @@
   <button mat-button>After</button>
 </header>
 <section class="datePicker">
-  <form >
-    <mat-form-field appearance="fill" class="date-form" FormControlName="date">
+  <form [formGroup] = "form">
+    <mat-form-field appearance="fill" class="date-form" >
       <mat-label class="date-label">Choose a date</mat-label>
-      <input matInput [min]="minDate" [matDatepicker]="picker">
+      <label>
+        <input matInput
+               [matDatepicker]="picker" formControlName="date"
+               (dateInput)="OnDateChange($event.value)"    />
+      </label>
       <mat-hint class="datePicker-hint">MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matSuffix [for]="picker" class="datePicker-toggle"></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="picker" class="datePicker-toggle" ></mat-datepicker-toggle>
       <mat-datepicker #picker ></mat-datepicker>
-<!--      <mat-error *ngIf="">-->
-<!--        is not a valid date!-->
+<!--      <mat-error *ngIf="formControls.form.errors" class="error">-->
+<!--        Maximum a should be-->
 <!--      </mat-error>-->
     </mat-form-field>
   </form>
+  <div *ngIf="!ageControl" class="error">
+    You dont have 18 years old!
+  </div>
 </section>
 
+<section>
+  <ol>
+    <li>
+      <mat-form-field appearance="fill">
+        <mat-label>What's your name?</mat-label>
+        <input matInput [(ngModel)]="name">
+      </mat-form-field>
+    </li>
+    <li>
+      <button mat-raised-button (click)="openDialog()">Pick one</button>
+    </li>
+    <li *ngIf="animal">
+      You chose: <i>{{animal}}</i>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <button mat-button (click)="openDialogList()">Open dialog</button>
+</section>
+
+<section>
+  <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport">
+    <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div>
+  </cdk-virtual-scroll-viewport>
+</section>
+
+<section>
+  <cdk-virtual-scroll-viewport itemSize="30" class="example-viewport" >
+    <div *cdkVirtualFor="let item of items; let odd = odd;" [class.example-alternate]="odd">
+      <div class="example-item-detail">Item: {{item}}</div>
+    </div>
+  </cdk-virtual-scroll-viewport>
+</section>
+
+<cdk-virtual-scroll-viewport class="example-viewport" itemSize="50" #sidenav cdkScrollable>
+  <dl class="example-dl">
+    <ng-container *cdkVirtualFor="let item of array">
+      {{item}}
+    </ng-container>
+  </dl>
+</cdk-virtual-scroll-viewport>
 
