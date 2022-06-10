@@ -15,27 +15,27 @@
 
   <button mat-button>After</button>
 </header>
-<section class="datePicker">
-  <form [formGroup] = "form">
-    <mat-form-field appearance="fill" class="date-form" >
-      <mat-label class="date-label">Choose a date</mat-label>
-      <label>
-        <input matInput
-               [matDatepicker]="picker" formControlName="date"
-               (dateInput)="OnDateChange($event.value)"    />
-      </label>
-      <mat-hint class="datePicker-hint">MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matSuffix [for]="picker" class="datePicker-toggle" ></mat-datepicker-toggle>
-      <mat-datepicker #picker ></mat-datepicker>
-<!--      <mat-error *ngIf="formControls.form.errors" class="error">-->
-<!--        Maximum a should be-->
-<!--      </mat-error>-->
-    </mat-form-field>
-  </form>
-  <div *ngIf="!ageControl" class="error">
-    You dont have 18 years old!
-  </div>
-</section>
+<!--<section class="datePicker">-->
+<!--  <form [formGroup] = "form">-->
+<!--    <mat-form-field appearance="fill" class="date-form" >-->
+<!--      <mat-label class="date-label">Choose a date</mat-label>-->
+<!--      <label>-->
+<!--        <input matInput-->
+<!--               [matDatepicker]="picker" formControlName="date"-->
+<!--               (dateInput)="OnDateChange($event.value)"    />-->
+<!--      </label>-->
+<!--      <mat-hint class="datePicker-hint">MM/DD/YYYY</mat-hint>-->
+<!--      <mat-datepicker-toggle matSuffix [for]="picker" class="datePicker-toggle" ></mat-datepicker-toggle>-->
+<!--      <mat-datepicker #picker ></mat-datepicker>-->
+<!--&lt;!&ndash;      <mat-error *ngIf="formControls.form.errors" class="error">&ndash;&gt;-->
+<!--&lt;!&ndash;        Maximum a should be&ndash;&gt;-->
+<!--&lt;!&ndash;      </mat-error>&ndash;&gt;-->
+<!--    </mat-form-field>-->
+<!--  </form>-->
+<!--  <div *ngIf="!ageControl" class="error">-->
+<!--    You dont have 18 years old!-->
+<!--  </div>-->
+<!--</section>-->
 
 <section>
   <ol>
@@ -72,11 +72,75 @@
   </cdk-virtual-scroll-viewport>
 </section>
 
-<cdk-virtual-scroll-viewport class="example-viewport" itemSize="50" #sidenav cdkScrollable>
+<cdk-virtual-scroll-viewport class="example-viewport" itemSize="50" #scroller cdkScrollable>
   <dl class="example-dl">
     <ng-container *cdkVirtualFor="let item of array">
       {{item}}
     </ng-container>
   </dl>
 </cdk-virtual-scroll-viewport>
+
+<section class="stepper-block">
+  <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+  </button>
+  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Fill out your name</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="form">
+      <form [formGroup] = "form">
+        <mat-form-field appearance="fill" class="date-form" >
+          <mat-label class="date-label">Choose a date</mat-label>
+          <label>
+            <input matInput
+                   [matDatepicker]="picker" formControlName="date"
+                   (dateInput)="OnDateChange($event.value)"    />
+          </label>
+          <mat-hint class="datePicker-hint">MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker" class="datePicker-toggle" ></mat-datepicker-toggle>
+          <mat-datepicker #picker ></mat-datepicker>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+      <div *ngIf="!ageControl" class="error">
+        You dont have 18 years old!
+      </div>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill password</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                 required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+<!--        <button>submit</button>-->
+      </div>
+    </mat-step>
+  </mat-stepper>
+</section>
 

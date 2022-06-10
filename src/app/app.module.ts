@@ -15,6 +15,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { DialogListComponent } from './dialog-list/dialog-list.component';
 import { ScrollingModule } from "@angular/cdk/scrolling";
 import {HttpClientModule} from "@angular/common/http";
+import {MatStepperModule} from "@angular/material/stepper";
 
 
 
@@ -24,21 +25,22 @@ import {HttpClientModule} from "@angular/common/http";
     DialogComponent,
     DialogListComponent,
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        MatMenuModule,
-        MatButtonModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatFormFieldModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        FormsModule,
-        MatDialogModule,
-        ScrollingModule,
-        HttpClientModule,
-    ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatDialogModule,
+    ScrollingModule,
+    HttpClientModule,
+    MatStepperModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,5 @@
 import {AfterViewInit, Component, OnInit, ViewChild,} from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from "./dialog/dialog.component";
 import { DialogListComponent } from "./dialog-list/dialog-list.component";
@@ -8,6 +8,7 @@ import {HttpClient} from "@angular/common/http";
 import {map,tap} from "rxjs/operators";
 import {CdkScrollable, ScrollDispatcher} from "@angular/cdk/overlay";
 import {BehaviorSubject} from "rxjs";
+import {CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
 
 
 export interface DialogData {
@@ -22,6 +23,7 @@ export interface DialogData {
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit{
+  // @ViewChild(CdkVirtualScrollViewport) scroller: CdkVirtualScrollViewport;
   post: BehaviorSubject<number> = new BehaviorSubject<number>(1);
   postCount = 1
 
@@ -36,7 +38,9 @@ export class AppComponent implements OnInit{
     return this.form.controls;
   }
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog, private http: HttpClient, private scroll: ScrollDispatcher){
+  constructor(private fb: FormBuilder, public dialog: MatDialog,
+              private http: HttpClient, private scroll: ScrollDispatcher,
+              private _formBuilder: FormBuilder){
     this.form = this.fb.group({
       date: ['date']
     })
@@ -84,13 +88,9 @@ export class AppComponent implements OnInit{
 
   items = Array.from({length: 100}).map((n, i) => `Item #${i}`);
 
-
   // blog comments
 
-
   array:string[] = [];
-
-
 
   private onWindowScroll(data: any) {
     const scrollTop = data.getElementRef().nativeElement.scrollTop || 0;
@@ -101,12 +101,10 @@ export class AppComponent implements OnInit{
     // } else if (scrollTop > 100) {
     //   console.log('333');
     // }
-
     if(scrollTop > 0){
       this.postCount++;
       this.post.next(this.postCount);
     }
-
     console.log('scrollTop' + scrollTop)
     // console.log('postCount' + this.postCount)
     // console.log(this.post.value)
@@ -131,4 +129,16 @@ export class AppComponent implements OnInit{
       )
       .subscribe();
   }
+
+
+  // stepper
+
+  firstFormGroup = this._formBuilder.group({
+    firstCtrl: ['', Validators.required],
+  });
+  secondFormGroup = this._formBuilder.group({
+    secondCtrl: ['', [Validators.required, Validators.minLength(6)]],
+  });
+  isLinear = false;
+
 }
